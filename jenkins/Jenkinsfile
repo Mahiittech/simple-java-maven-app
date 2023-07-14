@@ -3,14 +3,16 @@ pipeline {
     stages {
           stage( 'clone code') {
           steps {
-          
-          
-          
+             git branch: '*/master', url: 'https://github.com/Mahiittech/simple-java-maven-app.git'
           }
              
           
           }
-        
+         stage('build code') {
+         steps{
+         sh '''mvn compile'''
+         }
+         }
     
     }
     
